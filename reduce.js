@@ -24,3 +24,42 @@ const concatenar = palavras.reduce((acumulador, palavra) => {
 });
 
 console.log(concatenar);
+
+
+// 3. Agrupar por Categoria
+// Dado um array de produtos [{nome, categoria}], use reduce para criar um objeto que agrupe produtos por categoria.
+
+let produtos = [
+  {nome: "Monitor", categoria:"Infotmatica"},
+  {nome: "Panela", categoria:"Cozinha"},
+  {nome: "Teclado", categoria:"Infotmatica"},
+];
+
+
+const agruparPorCategoria = produtos.reduce((acumulador, produto) =>{
+  const categoria = produto.categoria;
+
+  if(!acumulador[categoria]){
+    acumulador[categoria] = []
+  }
+
+  acumulador[categoria].push(produto.nome);
+
+  return acumulador
+}, {});
+
+console.log(agruparPorCategoria)
+
+
+
+// 4. Calcular Média
+// Dado um array de notas, use reduce para calcular a média. (Dica: some tudo e depois divida pelo comprimento do array)
+
+const notas = [12, 14, 11, 16, 10]
+
+const calcularMedia = notas.reduce((acumulador, nota) => {
+
+  return acumulador + nota
+}, 0) /notas.length
+
+console.log(calcularMedia)
